@@ -44,7 +44,7 @@ class IconFieldWidget(widgets.TextInput):
 
         if value:
             segments = value.split(None, 1)
-            value = segments[1]
+            value = segments[1] if len(segments) > 1 else iconsets[0][1]
             selected_iconset = None
 
             for iconset in iconsets:
