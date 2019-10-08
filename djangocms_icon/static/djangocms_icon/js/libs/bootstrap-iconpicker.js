@@ -47,6 +47,7 @@
         fontawesome5regular: $.iconset_fontawesome_5_regular || Iconpicker.ICONSET_EMPTY,
         fontawesome5solid: $.iconset_fontawesome_5_solid || Iconpicker.ICONSET_EMPTY,
         fontawesome5light: $.iconset_fontawesome_5_light || Iconpicker.ICONSET_EMPTY,
+        fontawesome5duotone: $.iconset_fontawesome_5_duotone || Iconpicker.ICONSET_EMPTY,
         glyphicon: $.iconset_glyphicon || Iconpicker.ICONSET_EMPTY,
         ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY,
         mapicon: $.iconset_mapicon || Iconpicker.ICONSET_EMPTY,

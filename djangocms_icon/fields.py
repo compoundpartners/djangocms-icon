@@ -7,14 +7,24 @@ from django.forms import fields, widgets
 from django.template.loader import render_to_string
 from django.utils.translation import ugettext
 
+SHOW_PRO_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_PRO_ICONS', False)
 
 def get_iconsets():
-    iconsets = getattr(settings, 'DJANGOCMS_ICON_SETS', (
-        ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', 'lastest'),
-        ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', 'lastest'),
-        ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', 'lastest'),
-    ))
-
+    if SHOW_PRO_ICONS:
+        default = (
+            ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', '5.10.2_pro'),
+            ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', '5.10.2_pro'),
+            ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', '5.10.2_pro'),
+            ('fontawesome5light', 'fal', 'Font Awesome 5 Light', '5.10.2_pro'),
+            ('fontawesome5duotone', 'fad', 'Font Awesome 5 Duotone', '5.10.2_pro'),
+        )
+    else:
+        default = (
+            ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', '5.10.2'),
+            ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', '5.10.2'),
+            ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', '5.10.2'),
+        )
+    iconsets = getattr(settings, 'DJANGOCMS_ICON_SETS', default)
     current_iconsets = []
     for iconset in iconsets:
         if len(iconset) == 3:

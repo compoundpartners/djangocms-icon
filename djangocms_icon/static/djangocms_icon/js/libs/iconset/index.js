@@ -5,6 +5,7 @@ import './iconset-fontawesome-5-brands';
 import './iconset-fontawesome-5-light';
 import './iconset-fontawesome-5-regular';
 import './iconset-fontawesome-5-solid';
+import './iconset-fontawesome-5-duotone';
 import './iconset-glyphicon-all';
 import './iconset-ionicon-all';
 import './iconset-mapicon-all';
