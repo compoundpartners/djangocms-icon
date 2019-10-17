@@ -36,7 +36,7 @@ CLASSIFIERS = [
 
 
 setup(
-    name='djangocms-icon',
+    name='js-icon',
     version=__version__,
     author='Divio AG',
     author_email='info@divio.com',
