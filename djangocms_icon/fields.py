@@ -8,6 +8,7 @@ from django.template.loader import render_to_string
 from django.utils.translation import ugettext
 
 SHOW_PRO_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_PRO_ICONS', False)
+SHOW_DUOTONE_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_DUOTONE_ICONS', False)
 
 def get_iconsets():
     if SHOW_PRO_ICONS:
@@ -16,8 +17,11 @@ def get_iconsets():
             ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', '5.10.2_pro'),
             ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', '5.10.2_pro'),
             ('fontawesome5light', 'fal', 'Font Awesome 5 Light', '5.10.2_pro'),
-            ('fontawesome5duotone', 'fad', 'Font Awesome 5 Duotone', '5.10.2_pro'),
         )
+        if SHOW_DUOTONE_ICONS:
+            default += (
+                ('fontawesome5duotone', 'fad', 'Font Awesome 5 Duotone', '5.10.2_pro'),
+            )
     else:
         default = (
             ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', '5.10.2'),
