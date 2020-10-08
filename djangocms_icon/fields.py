@@ -55,10 +55,13 @@ class IconFieldWidget(widgets.TextInput):
 
         iconsets = get_iconsets()
         active_iconset = iconsets[0]
+        size = ''
 
         if value:
-            segments = value.split(None, 1)
+            segments = value.split(None, 2)
             value = segments[1] if len(segments) > 1 else iconsets[0][1]
+            if len(segments) > 2:
+                size = segments[2]
             selected_iconset = None
 
             for iconset in iconsets:
@@ -78,6 +81,7 @@ class IconFieldWidget(widgets.TextInput):
                 'prefix': active_iconset[1],
                 'is_required': self.is_required,
                 'iconsets': iconsets,
+                'size': size,
             },
         )
 

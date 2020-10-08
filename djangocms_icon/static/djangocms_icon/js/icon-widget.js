@@ -7,6 +7,7 @@ export default class IconWidget {
             name = data.name,
             iconPicker = element.find('.js-icon-' + name + ' .js-icon-picker'),
             iconSet = element.find('.js-icon-' + name + ' .js-iconset'),
+            iconSize = element.find('.js-icon-' + name + ' .js-iconsize'),
             enableIconCheckbox = element.find('.js-icon-' + name + ' .js-icon-enable'),
             widgets = element.find('.js-icon-' + name + ' .js-icon-widgets'),
             iconPickerButton = iconPicker.find('button'),
@@ -57,7 +58,11 @@ export default class IconWidget {
 
         iconPickerButton.on('change', function() {
             const options = iconPickerButton.data('bs.iconpicker').options;
-            iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon);
+            iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon + ' ' + iconSize.val());
+        });
+        iconSize.on('change', function() {
+            const options = iconPickerButton.data('bs.iconpicker').options;
+            iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon + ' ' + iconSize.val());
         });
 
         // checkbox is shown if field is not required, switches visibility

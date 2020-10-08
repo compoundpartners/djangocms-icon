@@ -32,5 +32,11 @@
     "babel-runtime": "^6.23.0",
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.2.1"
+  },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }

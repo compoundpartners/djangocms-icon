@@ -45,6 +45,11 @@ class AbstractIcon(CMSPlugin):
         verbose_name=_('Attributes'),
         blank=True,
     )
+    size = models.PositiveSmallIntegerField(
+        verbose_name=_('font size'),
+        blank=True,
+        null=True,
+    )
 
     class Meta:
         abstract = True

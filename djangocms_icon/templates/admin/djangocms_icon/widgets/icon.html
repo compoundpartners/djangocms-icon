@@ -22,7 +22,6 @@
                         {% endfor %}
                     </select>
                 </label>
-
                 <label class="iconpicker iconpicker-wrapper js-icon-picker">
                     <button type="button" {% if is_required %} id="id_{{ name }}"{% endif %}
                         name="{{ name }}"
@@ -30,7 +29,10 @@
                         data-iconset-version="{{ version }}"
                         data-icon="{{ value }}">
                     </button>
-                    <input type="hidden" name="icon" value="{{ prefix }} {{ value }}">
+                    <input type="hidden" name="icon" value="{{ prefix }} {{ value }} {{ size }}">
+                </label>
+                <label>
+                    <input class="form-control js-iconsize" type="text" value="{{ size }}" size="2">
                 </label>
             </span>
         </div>
