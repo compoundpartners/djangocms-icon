@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import re
+
 from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
@@ -18,7 +20,7 @@ class IconPlugin(CMSPluginBase):
     fieldsets = [
         (None, {
             'fields': (
-                ('icon', 'label'),
+                'icon', 'label',
             )
         }),
         (_('Advanced settings'), {
@@ -33,5 +35,11 @@ class IconPlugin(CMSPluginBase):
     def get_render_template(self, context, instance, placeholder):
         return 'djangocms_icon/{}/icon.html'.format(instance.template)
 
+    def render(self, context, instance, placeholder):
+        context.update({
+            'instance': instance,
+            'placeholder': placeholder,
+        })
+        return context
 
 plugin_pool.register_plugin(IconPlugin)

@@ -29,12 +29,36 @@
                         data-iconset-version="{{ version }}"
                         data-icon="{{ value }}">
                     </button>
-                    <input type="hidden" name="icon" value="{{ prefix }} {{ value }} {{ size }}">
+                    <input type="hidden" name="icon" value="{{ prefix }} {{ value }} {{ color }} {{ size }}">
                 </label>
-                <label>
-                    <input class="form-control js-iconsize" type="text" value="{{ size }}" size="2">
-                </label>
+                {% if enable_size or enable_color %}
+                  {% if enable_size %}
+                    <label>
+                      <input id="{{ name }}-size" class="form-control js-iconsize" type="text" value="{{ size }}" placeholder="size">
+                    </label>
+                  {% else %}
+                    <input class="js-iconsize" type="hidden" value="">
+                  {% endif %}
+                  {% if enable_color %}
+                    {% if color_mode == 'input' or color_mode == 'both' %}
+                      <label>
+                          <input class="form-control js-iconcolor" type="text" value="{{ color }}" placeholder="color">
+                      </label>
+                    {% else %}
+                      <input class="js-iconcolor" type="hidden" value="">
+                    {% endif %}
+                  {% else %}
+                    <input class="js-iconcolor" type="hidden" value="">
+                  {% endif %}
+                {% endif %}
             </span>
+          {% if enable_color %}
+            {% if color_mode != 'input' %}
+              <div>
+                  <input class="form-control color-picker choice" type="text" value="{{ color }}" data-colors="{{ colors }}">
+              </div>
+            {% endif %}
+          {% endif %}
         </div>
     {% endif %}
 </div>
