@@ -27,6 +27,8 @@ class IconDict():
     iconset = icon = color = size = ''
 
     def __init__(self, value=None):
+        if value is None:
+            value = ''
         if isinstance(value, dict):
             self.iconset = value.get('iconset', '')
             self.icon = value.get('icon', '')
@@ -109,9 +111,10 @@ class IconFieldWidget(widgets.TextInput):
             js.append('color-picker/color-picker2.js')
 
     def render(self, name, value, attrs=None, **kwargs):
-        if value is None:
-            value = ''
-
+        if value is None or value == '':
+            value = IconDict()
+        if not isinstance(value, IconDict):
+            value = IconDict(value)
         iconsets = get_iconsets()
         active_iconset = iconsets[0]
         size = ''
@@ -200,4 +203,6 @@ class Icon(models.CharField):
         return IconDict(value)
 
     def get_prep_value(self, value):
-        return value.all()
+        if isinstance(value, IconDict):
+            return value.all()
+        return value

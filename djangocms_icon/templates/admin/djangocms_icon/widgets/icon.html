@@ -54,7 +54,7 @@
             </span>
           {% if enable_color %}
             {% if color_mode != 'input' %}
-              <div>
+              <div class="js-icon-widgets{% if not is_required %} hidden{% endif %}">
                   <input class="form-control color-picker choice" type="text" value="{{ color }}" data-colors="{{ colors }}">
               </div>
             {% endif %}
