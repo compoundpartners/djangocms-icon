@@ -42,7 +42,8 @@ class IconDict():
             if len(value) > 2:
                 if re.match('^#?((?:[0-F]{3}){1,2})$', value[2], re.IGNORECASE):
                     self.color = value[2]
-                    self.size = value[3]
+                    if len(value) > 3:
+                        self.size = value[3]
                 else:
                     self.size = ' '.join(value[2:])
 

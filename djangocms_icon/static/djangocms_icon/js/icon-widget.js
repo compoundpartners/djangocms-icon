@@ -66,6 +66,9 @@ export default class IconWidget {
         iconSize.on('change', function() {
             iconPickerButton.trigger("change")
         });
+        iconSize.on('keyup', function() {
+            iconPickerButton.trigger("change")
+        });
         iconColor.change(function() {
             iconPickerButton.trigger("change")
         });
