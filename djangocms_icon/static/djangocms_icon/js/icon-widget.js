@@ -85,7 +85,7 @@ export default class IconWidget {
 
                 if (options.icon) {
                     iconPickerButton.find('input').val(options.icon).trigger('change');
-                    iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon);
+                    iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon + ' ' + iconColor.val() + ' ' + iconSize.val());
                 }
             } else {
                 widgets.addClass('hidden');
