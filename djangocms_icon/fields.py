@@ -12,6 +12,7 @@ from django.utils.translation import ugettext
 
 SHOW_PRO_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_PRO_ICONS', False)
 SHOW_DUOTONE_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_DUOTONE_ICONS', False)
+SHOW_SHARP_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_SHARP_ICONS', True)
 ENABLE_COLOR = getattr(settings, 'DJANGOCMS_ICON_ENABLE_COLOR', False)
 ENABLE_SIZE = getattr(settings, 'DJANGOCMS_ICON_ENABLE_SIZE', False)
 COLORS = getattr(settings, 'DJANGOCMS_ICON_COLORS', getattr(settings, 'JS_COLOR_PICKET_COLORS', []))
@@ -68,20 +69,24 @@ class IconDict():
 def get_iconsets():
     if SHOW_PRO_ICONS:
         default = (
-            ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', '5.10.2_pro'),
-            ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', '5.10.2_pro'),
-            ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', '5.10.2_pro'),
-            ('fontawesome5light', 'fal', 'Font Awesome 5 Light', '5.10.2_pro'),
+            ('fontawesome6regular', 'far', 'Font Awesome 6 Regular', '6.2.0_pro'),
+            ('fontawesome6solid', 'fas', 'Font Awesome 6 Solid', '6.2.0_pro'),
+            ('fontawesome6brands', 'fab', 'Font Awesome 6 Brands', '6.2.0_pro'),
+            ('fontawesome6light', 'fal', 'Font Awesome 6 Light', '6.2.0_pro'),
         )
         if SHOW_DUOTONE_ICONS:
             default += (
-                ('fontawesome5duotone', 'fad', 'Font Awesome 5 Duotone', '5.10.2_pro'),
+                ('fontawesome6duotone', 'fad', 'Font Awesome 6 Duotone', '6.2.0_pro'),
+            )
+        if SHOW_SHARP_ICONS:
+            default += (
+                ('fontawesome6sharp', 'fass', 'Font Awesome 6 Sharp', '6.2.0_pro'),
             )
     else:
         default = (
-            ('fontawesome5regular', 'far', 'Font Awesome 5 Regular', '5.10.2'),
-            ('fontawesome5solid', 'fas', 'Font Awesome 5 Solid', '5.10.2'),
-            ('fontawesome5brands', 'fab', 'Font Awesome 5 Brands', '5.10.2'),
+            ('fontawesome6regular', 'far', 'Font Awesome 6 Regular', '6.2.0'),
+            ('fontawesome6solid', 'fas', 'Font Awesome 6 Solid', '6.2.0'),
+            ('fontawesome6brands', 'fab', 'Font Awesome 6 Brands', '6.2.0'),
         )
     iconsets = getattr(settings, 'DJANGOCMS_ICON_SETS', default)
     current_iconsets = []
