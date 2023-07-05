@@ -61,7 +61,7 @@ export default class IconWidget {
 
         iconPickerButton.on('change', function() {
             const options = iconPickerButton.data('bs.iconpicker').options;
-            iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon + ' ' + iconColor.val() + ' ' + iconSize.val());
+            iconPicker.children('input[name=' + data.name + ']').val(options.iconClass + ' ' + options.icon + ' ' + iconColor.val() + ' ' + iconSize.val());
         });
         iconSize.on('change', function() {
             iconPickerButton.trigger("change")
@@ -85,12 +85,12 @@ export default class IconWidget {
 
                 if (options.icon) {
                     iconPickerButton.find('input').val(options.icon).trigger('change');
-                    iconPicker.children('input[name=icon]').val(options.iconClass + ' ' + options.icon + ' ' + iconColor.val() + ' ' + iconSize.val());
+                    iconPicker.children('input[name=' + data.name + ']').val(options.iconClass + ' ' + options.icon + ' ' + iconColor.val() + ' ' + iconSize.val());
                 }
             } else {
                 widgets.addClass('hidden');
                 iconPickerButton.find('input').val('').trigger('change');
-                iconPicker.children('input[name=icon]').val('');
+                iconPicker.children('input[name=' + data.name + ']').val('');
             }
         }).trigger('change');
     }
