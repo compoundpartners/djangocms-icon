@@ -514,7 +514,15 @@
                     'yoast',
                     'youtube',
                     'youtube-square',
-                    'zhihu'
+                    'zhihu',
+                    'threads',
+                    'debian',
+                    'shoelace',
+                    'square-threads',
+                    'x-twitter',
+                    'stubber',
+                    'odysee',
+                    'square-x-twitter'
                 ]
             },
             {
@@ -1019,7 +1027,15 @@
                     'yoast',
                     'youtube',
                     'youtube-square',
-                    'zhihu'
+                    'zhihu',
+                    'threads',
+                    'debian',
+                    'shoelace',
+                    'square-threads',
+                    'x-twitter',
+                    'stubber',
+                    'odysee',
+                    'square-x-twitter'
                  ]
             }
         ]
