@@ -8,7 +8,7 @@ from django.conf import settings
 from django.db import models
 from django.forms import fields, widgets
 from django.template.loader import render_to_string
-from django.utils.translation import ugettext
+from django.utils.translation import gettext
 
 SHOW_PRO_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_PRO_ICONS', False)
 SHOW_DUOTONE_ICONS = getattr(settings, 'DJANGOCMS_ICON_SHOW_DUOTONE_ICONS', False)
@@ -178,7 +178,7 @@ class Icon(models.CharField):
 
     def __init__(self, *args, **kwargs):
         if 'verbose_name' not in kwargs:
-            kwargs['verbose_name'] = ugettext('Icon')
+            kwargs['verbose_name'] = gettext('Icon')
         if 'max_length' not in kwargs:
             kwargs['max_length'] = 255
         if 'blank' not in kwargs:
